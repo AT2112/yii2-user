@@ -17,7 +17,6 @@ use yii\helpers\Html;
  */
 
 $this->title = empty($profile->name) ? Html::encode($profile->user->username) : Html::encode($profile->name);
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
@@ -47,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </li>
                     <?php endif; ?>
                     <li>
-                        <i class="glyphicon glyphicon-time text-muted"></i> <?= Yii::t('user', 'Joined on {0, date}', $profile->user->created_at) ?>
+                        <i class="glyphicon glyphicon-time text-muted"></i> <?= $profile->user->created_at ?>
                     </li>
                 </ul>
                 <?php if (!empty($profile->bio)): ?>

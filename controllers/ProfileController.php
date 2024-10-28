@@ -59,29 +59,4 @@ class ProfileController extends Controller
      *
      * @return \yii\web\Response
      */
-    public function actionIndex()
-    {
-        return $this->redirect(['show', 'id' => \Yii::$app->user->getId()]);
-    }
-
-    /**
-     * Shows user's profile.
-     *
-     * @param int $id
-     *
-     * @return \yii\web\Response
-     * @throws \yii\web\NotFoundHttpException
-     */
-    public function actionShow($id)
-    {
-        $profile = $this->finder->findProfileById($id);
-
-        if ($profile === null) {
-            throw new NotFoundHttpException();
-        }
-
-        return $this->render('show', [
-            'profile' => $profile,
-        ]);
-    }
 }
